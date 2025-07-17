@@ -90,7 +90,85 @@
   <div class="grid" id="curriculum"></div>
   <script>
     const data = {
-      // contenido de materias (sin cambios en este bloque)
+      "CBC": [
+        { id: "cbc_icpc", name: "Int. Pensamiento Científico (C)" },
+        { id: "cbc_icse", name: "Int. Con. Sociedad y Estado (C)" },
+        { id: "cbc_quim", name: "Química (C)" },
+        { id: "cbc_biof", name: "Biofísica (C)" },
+        { id: "cbc_biocel", name: "Biología Celular (C)" },
+        { id: "cbc_mate", name: "Matemática (C)" }
+      ],
+      "SEGUNDO AÑO": [
+        { id: "ing_tec", name: "Inglés Técnico", requires: ["cbc_icpc", "cbc_icse", "cbc_quim", "cbc_biof", "cbc_biocel", "cbc_mate"] },
+        { id: "anato", name: "Anatomía General y Estomatológica", requires: ["cbc_icpc", "cbc_icse", "cbc_quim", "cbc_biof", "cbc_biocel", "cbc_mate"] },
+        { id: "bioq", name: "Bioquímica General", requires: ["cbc_quim"] },
+        { id: "histo", name: "Histología y Embriología" },
+        { id: "inmuno1", name: "Inmunología y Microbiología I" },
+        { id: "biobucal", name: "Biología Bucal" },
+        { id: "insercion", name: "Inserción Temprana en la Clínica" },
+        { id: "biofisap", name: "Biofísica Aplicada a la Práctica Odontología" },
+        { id: "imagen1", name: "Diagnóstico por Imágenes con Radiofísica Sanitaria" }
+      ],
+      "TERCER AÑO": [
+        { id: "fisio", name: "Fisiología" },
+        { id: "patogen", name: "Patología General" },
+        { id: "matdent1", name: "Materiales Dentales I" },
+        { id: "precl1", name: "Preclínica de Odontología Restauradora I" },
+        { id: "opm1", name: "Odontología Preventiva y Mínimamente Invasiva I" },
+        { id: "prequiru", name: "Preclínica Quirúrgica y Anestesia" },
+        { id: "micro2", name: "Microbiología II" },
+        { id: "opm2", name: "Odontología Preventiva y Mínimamente Invasiva II" },
+        { id: "precl2", name: "Preclínica de Odontología Restauradora II" },
+        { id: "endo1", name: "Endodoncia I" },
+        { id: "patobuc", name: "Patología Bucal" },
+        { id: "matdent2", name: "Materiales Dentales II" },
+        { id: "bioetica", name: "Bioética y Ejercicio Profesional" },
+        { id: "period1", name: "Introducción a la Periodoncia" }
+      ],
+      "CUARTO AÑO": [
+        { id: "preprot", name: "Preclínica de Rehabilitación Protética" },
+        { id: "farma", name: "Farmacología" },
+        { id: "medint", name: "Medicina Interna en la Práctica Odontológica" },
+        { id: "endo2", name: "Endodoncia II" },
+        { id: "period2", name: "Periodoncia" },
+        { id: "restau", name: "Odontología Restauradora" },
+        { id: "bioest", name: "Bioestadística y Metodología de la Investigación" },
+        { id: "histodonto", name: "Historia de la Odontología" },
+        { id: "cirbuco1", name: "Cirugía y Traumatología Bucomaxilofacial I" }
+      ],
+      "QUINTO AÑO": [
+        { id: "rehab", name: "Odontología Rehabilitadora Integral" },
+        { id: "cirbuco2", name: "Cirugía y Traumatología Bucomaxilofacial II" },
+        { id: "odonni", name: "Odontología Integral Niños y Adolescentes" },
+        { id: "matdent3", name: "Materiales Dentales III" },
+        { id: "imagen2", name: "Diagnóstico por Imágenes II" },
+        { id: "medbuc1", name: "Medicina Bucal I" },
+        { id: "epidemio", name: "Epidemiología y Salud de las Poblaciones" }
+      ],
+      "SEXTO AÑO": [
+        { id: "pps", name: "Odontología Integral Adultos (PPS)" },
+        { id: "pse", name: "Articulación Docencia- Servicio-Investigación (Práctica Social Educativa)" },
+        { id: "orto1", name: "Ortodoncia I" },
+        { id: "medbuc2", name: "Medicina Bucal II" },
+        { id: "cirbuco3", name: "Cirugía y Traumatología Bucomaxilofacial III" },
+        { id: "forense", name: "Odontología Forense" },
+        { id: "gestion", name: "Sistema de Salud y Gestión Clínica" },
+        { id: "adultomayor", name: "Odontología Integral para el Adulto Mayor" },
+        { id: "moduloe", name: "Módulo Electivo Asistencial Orientado" },
+        { id: "optativa", name: "Asignatura optativa" }
+      ],
+      "MODULO ELECTIVO ASISTENCIAL ORIENTADO": [
+        { id: "riesgo", name: "Riesgo Sistémico de la Patología Buco-Dental" },
+        { id: "discapacidad", name: "Atención Odontológica en Pacientes con Discapacidad" },
+        { id: "orto2", name: "Ortodoncia II" },
+        { id: "rural", name: "Programa Rural de Atención Odontológica" },
+        { id: "trauma", name: "Traumatismos Dentarios" },
+        { id: "tac", name: "Tomografía Computada en la Práctica Clínica Odontológica" },
+        { id: "sequedad", name: "Atención Integral de Pacientes con Sequedad Bucal" },
+        { id: "modulobaja1", name: "Módulo Asistencial Integrado de Baja Complejidad" },
+        { id: "modulobaja2", name: "Módulo Asistencial Integrado de Baja Complejidad" },
+        { id: "urgencia", name: "Módulo Asistencial de Urgencias Odontológicas" }
+      ]
     };
 
     const approved = JSON.parse(localStorage.getItem("materias_aprobadas") || "[]");
