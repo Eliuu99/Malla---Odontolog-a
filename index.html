@@ -124,13 +124,20 @@
           input.addEventListener("change", () => {
             notas[m.id] = input.value;
             localStorage.setItem("notas_materias", JSON.stringify(notas));
+            render();
           });
           nota.appendChild(input);
           div.appendChild(nota);
 
-          if (faltan.length > 0) {
+          const notaValida = Number(notas[m.id]) >= 4;
+
+          if (faltan.length > 0 || !notaValida) {
             div.classList.add("locked");
-            div.title = "Requiere: " + faltan.map(id => getSubjectName(id)).join(", ");
+            let requisitosText = faltan.map(id => getSubjectName(id)).join(", ");
+            if (!notaValida) {
+              requisitosText += (requisitosText ? "\n" : "") + "Nota mínima: 4";
+            }
+            div.title = "Requiere: " + requisitosText;
           } else {
             if (approved.includes(m.id)) div.classList.add("approved");
             div.addEventListener("click", () => toggleAprobado(m.id));
